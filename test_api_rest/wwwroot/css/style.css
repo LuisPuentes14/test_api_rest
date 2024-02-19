@@ -1,0 +1,450 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap");
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+
+.cm-s-dracula.CodeMirror,
+.cm-s-dracula .CodeMirror-gutters {
+    border-radius: 20px;
+}
+
+.CodeMirror-lines {
+    width: 580px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+    body .section .containerForm {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: rgb(37, 37, 37);
+        z-index: 99;
+        position: relative;
+    }
+
+        body .section .containerForm .form {
+            width: 340px;
+            height: 470px;
+            background-color: rgb(54, 54, 54);
+            background: linear-gradient(#212121, #212121) padding-box, linear-gradient(145deg, transparent 35%, #e81cff, #40c9ff) border-box;
+            box-shadow: 2px 2px 10px rgb(65, 65, 65), -2px -2px 10px rgb(65, 65, 65);
+            border-radius: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border: 2px solid transparent;
+            background-size: 200% 100%;
+            animation: gradient 5s ease infinite;
+        }
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 80%;
+    }
+
+    50% {
+        background-position: 100% 0%;
+    }
+
+    100% {
+        background-position: 0% 180%;
+    }
+}
+
+body .section .containerForm .form .spaceUser {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+    body .section .containerForm .form .spaceUser #heading {
+        font-size: 30px;
+        font-weight: bold;
+        color: rgb(241, 241, 241);
+        margin-top: 50px;
+    }
+
+    body .section .containerForm .form .spaceUser .title {
+        position: relative;
+    }
+
+        body .section .containerForm .form .spaceUser .title::before,
+        body .section .containerForm .form .spaceUser .title::after {
+            position: absolute;
+            content: "";
+            height: 16px;
+            width: 16px;
+            border-radius: 50%;
+            left: 0px;
+            background-color: #e81cff;
+        }
+
+        body .section .containerForm .form .spaceUser .title::before {
+            width: 18px;
+            height: 18px;
+            background-color: #80128c;
+        }
+
+        body .section .containerForm .form .spaceUser .title::after {
+            width: 18px;
+            height: 18px;
+            animation: pulse 1s linear infinite;
+        }
+
+@keyframes pulse {
+    from {
+        transform: scale(0.9);
+        opacity: 1;
+    }
+
+    to {
+        transform: scale(1.8);
+        opacity: 0;
+    }
+}
+
+body .section .containerForm .contaiInput {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+    body .section .containerForm .contaiInput .field {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: row;
+        width: 80%;
+        border-radius: 25px;
+        padding: 12px;
+        gap: 10px;
+        border: none;
+        outline: none;
+        color: white;
+        background-color: rgb(37, 37, 37);
+        box-shadow: inset 2px 5px 10px rgb(20, 19, 19), 2px 2px 10px rgb(37, 37, 37), -2px -2px 10px rgb(59, 59, 59);
+    }
+
+        body .section .containerForm .contaiInput .field .input-icon {
+            height: 1.3em;
+            width: 1.3em;
+            fill: white;
+        }
+
+        body .section .containerForm .contaiInput .field .input-field {
+            background: none;
+            border: none;
+            outline: none;
+            width: 100%;
+            color: #d3d3d3;
+        }
+
+body .section .containerForm .btn {
+    margin-top: 70px;
+}
+
+    body .section .containerForm .btn button {
+        width: 10em;
+        position: relative;
+        height: 3em;
+        border: 3px ridge #e81cff;
+        outline: none;
+        background-color: transparent;
+        color: rgb(241, 241, 241);
+        transition: 1s;
+        border-radius: 0.3em;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+        body .section .containerForm .btn button::after {
+            content: "";
+            position: absolute;
+            top: -10px;
+            left: 3%;
+            width: 95%;
+            height: 40%;
+            background-color: #212121;
+            transition: 0.5s;
+            transform-origin: center;
+        }
+
+        body .section .containerForm .btn button::before {
+            content: "";
+            transform-origin: center;
+            position: absolute;
+            top: 80%;
+            left: 3%;
+            width: 95%;
+            height: 40%;
+            background-color: #212121;
+            transition: 0.5s;
+        }
+
+        body .section .containerForm .btn button:hover::before, body .section .containerForm .btn button:hover::after {
+            transform: scale(0);
+        }
+
+        body .section .containerForm .btn button:hover {
+            box-shadow: inset 0px 0px 25px #9f14ea;
+        }
+
+body .section .containerForm .button3 {
+    color: rgb(241, 241, 241);
+    margin-top: 30px;
+}
+
+body .sectionForm {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(37, 37, 37);
+    z-index: 99;
+    height: 100vh;
+    position: relative;
+}
+
+    body .sectionForm .form-sudmit {
+        width: 70%;
+        height: auto;
+        background-color: rgb(54, 54, 54);
+        background: linear-gradient(#212121, #212121) padding-box, linear-gradient(145deg, transparent 35%, #e81cff, #40c9ff) border-box;
+        box-shadow: 2px 2px 10px rgb(65, 65, 65), -2px -2px 10px rgb(65, 65, 65);
+        border-radius: 30px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border: 2px solid transparent;
+        background-size: 200% 100%;
+        animation: gradient 5s ease infinite;
+    }
+
+        body .sectionForm .form-sudmit .contaiInput__cls {
+            width: 100%;
+        }
+
+            body .sectionForm .form-sudmit .contaiInput__cls .form {
+                width: 100%;
+            }
+
+                body .sectionForm .form-sudmit .contaiInput__cls .form .contaiInput {
+                    width: 100%;
+                    padding: 20px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    gap: 20px;
+                }
+
+                    body .sectionForm .form-sudmit .contaiInput__cls .form .contaiInput .cotainer_close {
+                        width: 100%;
+                        display: flex;
+                        justify-content: space-between;
+                        gap: 20px;
+                    }
+
+                        body .sectionForm .form-sudmit .contaiInput__cls .form .contaiInput .cotainer_close div {
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            gap: 20px;
+                        }
+
+                            body .sectionForm .form-sudmit .contaiInput__cls .form .contaiInput .cotainer_close div #selectNames {
+                                width: 300px;
+                                background-color: rgb(37, 37, 37);
+                                box-shadow: inset 2px 5px 10px rgb(20, 19, 19), 2px 2px 10px rgb(37, 37, 37), -2px -2px 10px rgb(59, 59, 59);
+                                border: none;
+                                padding: 12px;
+                                border-radius: 20px;
+                                outline: none;
+                                color: white;
+                            }
+
+                            body .sectionForm .form-sudmit .contaiInput__cls .form .contaiInput .cotainer_close div select {
+                                -webkit-appearance: none;
+                                -moz-appearance: none;
+                                appearance: none;
+                            }
+
+                        body .sectionForm .form-sudmit .contaiInput__cls .form .contaiInput .cotainer_close #descripcionJson {
+                            width: 100%;
+                            display: flex;
+                            justify-content: start;
+                            background-color: rgb(37, 37, 37);
+                            box-shadow: inset 2px 5px 10px rgb(20, 19, 19), 2px 2px 10px rgb(37, 37, 37), -2px -2px 10px rgb(59, 59, 59);
+                            border: none;
+                            padding: 12px;
+                            border-radius: 20px;
+                            outline: none;
+                            color: white;
+                        }
+
+                            body .sectionForm .form-sudmit .contaiInput__cls .form .contaiInput .cotainer_close #descripcionJson span {
+                                font-size: 12px;
+                            }
+
+                        body .sectionForm .form-sudmit .contaiInput__cls .form .contaiInput .cotainer_close .clos_form {
+                            width: 35px;
+                            height: 35px;
+                            border: none;
+                            border-radius: 50%;
+                            background-color: rgb(37, 37, 37);
+                            box-shadow: inset 2px 5px 10px rgb(20, 19, 19), 2px 2px 10px rgb(37, 37, 37), -2px -2px 10px rgb(59, 59, 59);
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            cursor: pointer;
+                        }
+
+                            body .sectionForm .form-sudmit .contaiInput__cls .form .contaiInput .cotainer_close .clos_form:hover {
+                                box-shadow: 2px 5px 10px rgb(20, 19, 19);
+                            }
+
+                                body .sectionForm .form-sudmit .contaiInput__cls .form .contaiInput .cotainer_close .clos_form:hover i {
+                                    color: rgb(255, 0, 0);
+                                }
+
+                            body .sectionForm .form-sudmit .contaiInput__cls .form .contaiInput .cotainer_close .clos_form i {
+                                font-size: 20px;
+                                color: #8c2c97;
+                            }
+
+                    body .sectionForm .form-sudmit .contaiInput__cls .form .contaiInput #columnResponsive {
+                        display: flex;
+                        flex-direction: row;
+                        gap: 25px;
+                    }
+
+                        body .sectionForm .form-sudmit .contaiInput__cls .form .contaiInput #columnResponsive .field_2 {
+                            width: 100%;
+                            border-radius: 20px;
+                            overflow: hidden;
+                            display: flex;
+                            align-items: start;
+                            justify-content: center;
+                            flex-direction: row;
+                            border-radius: 25px;
+                            padding: 12px;
+                            gap: 10px;
+                            border: none;
+                            outline: none;
+                            color: white;
+                            background-color: #282a36;
+                            box-shadow: inset 2px 5px 10px rgb(20, 19, 19), 2px 2px 10px rgb(37, 37, 37), -2px -2px 10px rgb(59, 59, 59);
+                            flex-direction: column-reverse;
+                            transition: height 0.5s ease-in-out;
+                        }
+
+                            body .sectionForm .form-sudmit .contaiInput__cls .form .contaiInput #columnResponsive .field_2 .responseJson {
+                                color: #8b1199;
+                                letter-spacing: 1px;
+                                width: 100%;
+                                display: flex;
+                                justify-content: end;
+                            }
+
+                        body .sectionForm .form-sudmit .contaiInput__cls .form .contaiInput #columnResponsive .field_3 {
+                            width: 100%;
+                            height: 370px;
+                            border-radius: 20px;
+                            overflow: hidden;
+                            display: flex;
+                            justify-content: center;
+                            flex-direction: row;
+                            border-radius: 25px;
+                            padding: 12px;
+                            gap: 10px;
+                            border: none;
+                            outline: none;
+                            color: white;
+                            background-color: #282a36;
+                            box-shadow: inset 2px 5px 10px rgb(20, 19, 19), 2px 2px 10px rgb(37, 37, 37), -2px -2px 10px rgb(59, 59, 59);
+                            flex-direction: column-reverse;
+                        }
+
+                            body .sectionForm .form-sudmit .contaiInput__cls .form .contaiInput #columnResponsive .field_3 .responseJson {
+                                color: #8b1199;
+                                letter-spacing: 1px;
+                                width: 100%;
+                                display: flex;
+                                justify-content: end;
+                            }
+
+                    body .sectionForm .form-sudmit .contaiInput__cls .form .contaiInput .btn {
+                        width: 100%;
+                        display: flex;
+                        justify-content: center;
+                    }
+
+                        body .sectionForm .form-sudmit .contaiInput__cls .form .contaiInput .btn button {
+                            width: 10em;
+                            position: relative;
+                            height: 3em;
+                            border: 3px ridge #e81cff;
+                            outline: none;
+                            background-color: transparent;
+                            color: rgb(241, 241, 241);
+                            transition: 1s;
+                            border-radius: 0.3em;
+                            font-size: 16px;
+                            font-weight: bold;
+                            cursor: pointer;
+                            align-items: center;
+                            gap: 20px;
+                        }
+
+                            body .sectionForm .form-sudmit .contaiInput__cls .form .contaiInput .btn button i {
+                                color: #a926b8;
+                                font-size: 20px;
+                            }
+
+                            body .sectionForm .form-sudmit .contaiInput__cls .form .contaiInput .btn button::after {
+                                content: "";
+                                position: absolute;
+                                top: -10px;
+                                left: 3%;
+                                width: 95%;
+                                height: 40%;
+                                background-color: #212121;
+                                transition: 0.5s;
+                                transform-origin: center;
+                            }
+
+                            body .sectionForm .form-sudmit .contaiInput__cls .form .contaiInput .btn button::before {
+                                content: "";
+                                transform-origin: center;
+                                position: absolute;
+                                top: 80%;
+                                left: 3%;
+                                width: 95%;
+                                height: 40%;
+                                background-color: #212121;
+                                transition: 0.5s;
+                            }
+
+                            body .sectionForm .form-sudmit .contaiInput__cls .form .contaiInput .btn button:hover::before, body .sectionForm .form-sudmit .contaiInput__cls .form .contaiInput .btn button:hover::after {
+                                transform: scale(0);
+                            }
+
+                            body .sectionForm .form-sudmit .contaiInput__cls .form .contaiInput .btn button:hover {
+                                box-shadow: inset 0px 0px 25px #9f14ea;
+                            }
+
+/*# sourceMappingURL=style.css.map */
