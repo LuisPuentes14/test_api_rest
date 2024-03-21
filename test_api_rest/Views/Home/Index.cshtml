@@ -17,7 +17,7 @@
 <body>
     <div class="section">
         <div class="containerForm">
-            <form class="form" method="post" asp-action="Login", asp-controller="Home" >
+            <form class="form" method="post" asp-action="Login" , asp-controller="Home">
                 <div class="spaceUser">
                     <p class="title"></p>
                     <p id="heading">Iniciar sesion</p>
@@ -40,14 +40,25 @@
                 </div>
                 <div class="btn">
                     <button class="button1">Login</button>
-                </div>                
+                </div>
             </form>
         </div>
     </div>
 </body>
 
+@{
+    if (ViewBag.Message is not null)
+    {
+        <script>
+            alert("@ViewBag.Message");
+        </script>
+    }
+}
+
 
 <script>
+
+
     var usernameInput = document.getElementById('username');
     usernameInput.addEventListener('input', function () {
         this.value = this.value.toUpperCase();

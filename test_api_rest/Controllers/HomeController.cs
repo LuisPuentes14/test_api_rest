@@ -22,6 +22,12 @@ namespace test_api_rest.Controllers
         {
             UserAccessData userAccessData = await _loginService.LoginAuthentication(user);
 
+            if (userAccessData is null)
+            {
+                ViewBag.Message = "Credenciales invalidas";
+                return View("Index");
+            }
+
             HttpContext.Session.SetString("UserAccesData", JsonSerializer.Serialize(userAccessData));            
 
             return RedirectToAction("Index", "Request");

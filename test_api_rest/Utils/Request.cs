@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using System.Net;
 using System.Net.Http;
 using System.Text;
 using test_api_rest.Models;
@@ -58,7 +59,7 @@ namespace test_api_rest.Utils
         {
             Console.WriteLine("obteniedo token");
 
-            Tokens tokens = new();
+            Tokens tokens = null;
 
             var url = _configuration["ServerConnection"] + "/api/v1/jsonwebtoken_authenticate";
 
@@ -96,30 +97,42 @@ namespace test_api_rest.Utils
             // Crear una instancia de HttpClient
             using (var httpClient = new HttpClient())
             {
-                var ivx = Utils.GetIvBytesBase64();
-                var newAesKeyBase64 = Utils.GetAesKeyAndIvBytesBase64(userAccessData.AesKey, ivx);
+                try
+                {
+                    var ivx = Utils.GetIvBytesBase64();
+                    var newAesKeyBase64 = Utils.GetAesKeyAndIvBytesBase64(userAccessData.AesKey, ivx);
+
+                    var jj = userAccessData.Tokens.refreshToken;
 
 
-                httpClient.DefaultRequestHeaders.TryAddWithoutValidation("X-User", userAccessData.login);
-                httpClient.DefaultRequestHeaders.TryAddWithoutValidation("X-Iv", ivx);               
-                httpClient.DefaultRequestHeaders.TryAddWithoutValidation("Authorization", $"Bearer {Utils.EncryptAes256WithIvBase64(userAccessData.Tokens.accessToken, newAesKeyBase64)}");
+                    httpClient.DefaultRequestHeaders.TryAddWithoutValidation("X-User", Convert.ToBase64String( Encoding.UTF8.GetBytes(userAccessData.login))) ;
+                    httpClient.DefaultRequestHeaders.TryAddWithoutValidation("X-Iv", ivx);
+                    httpClient.DefaultRequestHeaders.TryAddWithoutValidation("Authorization", $"Bearer {Utils.EncryptAes256WithIvBase64(userAccessData.Tokens.accessToken, newAesKeyBase64)}");
 
-                var json = body.ToString();            
-                var contenido = new StringContent(json, Encoding.UTF8, "application/json");
+                    var json = body.ToString();
+                    var contenido = new StringContent(json, Encoding.UTF8, "application/json");
 
-                Console.WriteLine(httpClient.DefaultRequestHeaders);
+                    Console.WriteLine(httpClient.DefaultRequestHeaders);
 
-                var respuesta = await httpClient.PostAsync(url, contenido);
+                    var respuesta = await httpClient.PostAsync(url, contenido);
 
-                Console.WriteLine(respuesta);
+                    Console.WriteLine(respuesta);
 
-                //if (respuesta.IsSuccessStatusCode)
-                //{
+                    //if (respuesta.IsSuccessStatusCode)
+                    //{
                     // Lee y procesa la respuesta
                     contenidoRespuesta = await respuesta.Content.ReadAsStringAsync();
                     Console.WriteLine(contenidoRespuesta);
 
-               // }
+                    // }
+
+                }
+                 catch (Exception ex)
+                {
+
+                    throw;
+                }
+                
             }
 
             return contenidoRespuesta;
